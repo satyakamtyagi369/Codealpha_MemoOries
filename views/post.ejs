@@ -1,0 +1,39 @@
+<!-- views/post.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <h1><%= title %></h1>
+    <p>Author: <%= author %></p>
+    <p>Date: <%= date.toDateString() %></p>
+    <p><%= content %></p>
+
+    <hr>
+
+    <h2>Comments</h2>
+    <% comments.forEach(comment => { %>
+        <div class="comment">
+            <p><strong><%= comment.name %>:</strong> <%= comment.comment %></p>
+            <p><em>Date: <%= comment.date.toDateString() %></em></p>
+        </div>
+    <% }); %>
+
+    <h3>Add a Comment</h3>
+    <form action="/posts/<%= _id %>" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="comment">Comment:</label><br>
+        <textarea id="comment" name="comment" rows="4" cols="50" required></textarea><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>

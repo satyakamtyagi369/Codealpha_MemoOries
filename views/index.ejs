@@ -1,0 +1,49 @@
+<!-- views/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+   
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Blog</title>
+   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+   <!-- Image and text -->
+<nav class="navbar navbar-dark bg-dark">
+   <a class="navbar-brand" href="/">
+     <img src="views/logo.png" width="50" height="50" class="d-inline-block align-top" alt="">
+     <i>Shayari.com</i>
+   </a>
+ </nav>
+   <div class="container">
+       <h1>Blog</h1>
+
+       <div class="posts">
+           <% posts.forEach(post => { %>
+               <div class="post">
+                   <h2><a href="/posts/<%= post._id %>"><%= post.title %></a></h2>
+                   <p>Author: <%= post.author %></p>
+                   <p>Date: <%= post.date.toDateString() %></p>
+                   <p><%= post.content.substring(0, 100) %>...</p>
+                   <div class="buttons">
+                       <a href="/posts/<%= post._id %>"><button class="btn btn-primary">View</button></a>
+                       <a href="/posts/<%= post._id %>/edit"><button class="btn btn-success">Edit</button></a>
+                       <form action="/posts/<%= post._id %>/delete" method="post">
+                           <button type="submit" class="btn btn-danger">Delete</button>
+                       </form>
+                   </div>
+               </div>
+           <% }); %>
+       </div>
+
+       <div class="new-post">
+           <a href="/compose"><button class="btn btn-primary">New Post</button></a>
+       </div>
+   </div>
+</body>
+</html>

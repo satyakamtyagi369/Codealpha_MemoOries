@@ -1,0 +1,43 @@
+<!-- views/edit.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Post</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+     <!-- Image and text -->
+<nav class="navbar navbar-dark bg-dark">
+   <a class="navbar-brand" href="/">
+     <img src="https://img.freepik.com/premium-photo/feelingstext-effect-jpg-gradient-purple-background-card-photo_873925-589877.jpg?w=740" width="30" height="30" class="d-inline-block align-top" alt="">
+     Feelings
+   </a>
+ </nav>
+    <div class="container">
+        <h1>Edit Post</h1>
+
+        <form action="/posts/<%= post._id %>/edit" method="post">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" class="form-control" id="title" name="title" value="<%= post.title %>" required>
+            </div>
+            <div class="form-group">
+                <label for="author">Author:</label>
+                <input type="text" class="form-control" id="author" name="author" value="<%= post.author %>" required>
+            </div>
+            <div class="form-group">
+                <label for="content">Content:</label>
+                <textarea class="form-control" id="content" name="content" rows="8" required><%= post.content %></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+</body>
+
+</html>

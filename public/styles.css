@@ -1,0 +1,136 @@
+
+body {
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+   background:linear-gradient(45deg,rgb(46, 254, 46),rgb(183, 247, 183),rgb(175, 248, 112))
+}
+
+.container {
+   max-width: 800px;
+   margin: 20px auto;
+   padding: 0 20px;
+}
+
+h1 {
+   text-align: center;
+   margin-bottom: 40px;
+   color: #333;
+}
+
+.post {
+   background-color: #fff;
+   border-radius: 8px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   padding: 20px;
+   margin-bottom: 20px;
+}
+
+.post h2 {
+   color: #333;
+}
+
+.post p {
+   color: #666;
+   margin-bottom: 10px;
+}
+
+.post a {
+   text-decoration: none;
+   color: #007bff;
+   transition: color 0.3s;
+}
+
+.post a:hover {
+   color: #0056b3;
+}
+
+.buttons {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.buttons button {
+   padding: 8px 16px;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+   transition: background-color 0.3s;
+}
+
+.buttons button:hover {
+   background-color: #007bff;
+   color: #fff;
+}
+
+.new-post {
+   text-align: center;
+   margin-top: 20px;
+}
+
+.new-post button {
+   padding: 10px 20px;
+   background-color: #28a745;
+   color: #fff;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+   transition: background-color 0.3s;
+}
+
+.new-post button:hover {
+   background-color: #218838;
+}
+body {
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+   background:linear-gradient(45deg,rgb(36, 36, 241),rgb(76, 197, 245),rgb(147, 147, 249),skyblue);
+}
+
+.container {
+   max-width: 800px;
+   margin: 20px auto;
+   padding: 0 20px;
+}
+
+h1 {
+   text-align: center;
+   margin-bottom: 40px;
+   color: #333;
+}
+
+form {
+   background-color: #fff;
+   border-radius: 8px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   padding: 20px;
+}
+
+form label {
+   font-weight: bold;
+}
+
+form input[type="text"],
+form textarea {
+   width: 100%;
+   margin-bottom: 20px;
+   padding: 10px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+}
+
+form button {
+   padding: 10px 20px;
+   background-color: #28a745;
+   color: #fff;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+   transition: background-color 0.3s;
+}
+
+form button:hover {
+   background-color: #218838;
+}
