@@ -1,49 +1,71 @@
-<!-- views/index.ejs -->
-
 <!DOCTYPE html>
 <html lang="en">
-   
-
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Blog</title>
+   <title>MemeOries</title>
    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/styles.css">
+   <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
-   <!-- Image and text -->
 <nav class="navbar navbar-dark bg-dark">
    <a class="navbar-brand" href="/">
-     <img src="https://img.freepik.com/free-vector/duck-swimming-pond_1308-46105.jpg?t=st=1713779021~exp=1713782621~hmac=a2247c7f6b3526cebd8a33bfcd79278719febedcb0f894c8a0b8d133eabb9c3c&w=740" width="50" height="50" class="d-inline-block align-top" alt="">
-     <i>Shayari.com</i>
+     <img src="https://thumbs.dreamstime.com/b/newborn-baby-holding-grandmother-finger-intergenerational-connection-love-close-up-wrinkled-hand-holding-newborn-s-379258304.jpg" width="50" height="50" class="d-inline-block align-top" alt="">
+     <i>MemeOries.com</i>
    </a>
- </nav>
-   <div class="container">
-       <h1>Blog</h1>
+</nav>
 
-       <div class="posts">
-           <% posts.forEach(post => { %>
-               <div class="post">
-                   <h2><a href="/posts/<%= post._id %>"><%= post.title %></a></h2>
-                   <p>Author: <%= post.author %></p>
-                   <p>Date: <%= post.date.toDateString() %></p>
-                   <p><%= post.content.substring(0, 100) %>...</p>
-                   <div class="buttons">
-                       <a href="/posts/<%= post._id %>"><button class="btn btn-primary">View</button></a>
-                       <a href="/posts/<%= post._id %>/edit"><button class="btn btn-success">Edit</button></a>
-                       <form action="/posts/<%= post._id %>/delete" method="post">
-                           <button type="submit" class="btn btn-danger">Delete</button>
-                       </form>
+<div class="container">
+   <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Share your Childhood Memories....</h1>
+
+   <div class="posts">
+       <% posts.forEach(function(post, index) { %>
+           <div class="post">
+               <h2><a href="/posts/<%= post._id %>"><%= post.title %></a></h2>
+               <p>Author: <%= post.author %></p>
+               <p>Date: <%= post.date.toDateString() %></p>
+               <p><%= post.content.substring(0, 100) %>...</p>
+               <div class="buttons">
+                   <a href="/posts/<%= post._id %>"><button class="btn btn-primary">View</button></a>
+
+                   <!-- Like button with heart -->
+                   <div class="like-container">
+                       <span class="like-count" id="like-count-<%= index %>">0</span>
+                       <button class="heart-button" data-index="<%= index %>">
+                           <div class="heart-shape"></div>
+                       </button>
                    </div>
-               </div>
-           <% }); %>
-       </div>
 
-       <div class="new-post">
-           <a href="/compose"><button class="btn btn-primary">New Post</button></a>
-       </div>
+                   <a href="/posts/<%= post._id %>/edit"><button class="btn btn-success">Edit</button></a>
+                   <form action="/posts/<%= post._id %>/delete" method="post">
+                       <button type="submit" class="btn btn-danger">Delete</button>
+                   </form>
+               </div>
+           </div>
+       <% }); %>
    </div>
+
+   <div class="new-post">
+       <a href="/compose"><button class="btn btn-primary">New Post</button></a>
+   </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.heart-button').forEach(button => {
+        button.addEventListener('click', function () {
+            const index = this.getAttribute('data-index');
+            const countElem = document.getElementById('like-count-' + index);
+            let count = parseInt(countElem.innerText, 10);
+            count++;
+            countElem.innerText = count;
+
+            this.classList.add('liked');
+            setTimeout(() => this.classList.remove('liked'), 600);
+        });
+    });
+});
+</script>
 </body>
 </html>

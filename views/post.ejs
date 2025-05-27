@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <div class="newpostbox">
     <h1><%= title %></h1>
     <p>Author: <%= author %></p>
     <p>Date: <%= date.toDateString() %></p>
@@ -25,7 +26,7 @@
             <p><em>Date: <%= comment.date.toDateString() %></em></p>
         </div>
     <% }); %>
-
+</div>
     <h3>Add a Comment</h3>
     <form action="/posts/<%= _id %>" method="post">
         <label for="name">Name:</label>
