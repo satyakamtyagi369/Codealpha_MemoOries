@@ -52,6 +52,7 @@ h1 {
    padding: 20px;
    width:60%;
    margin-left:20%;
+   margin-top: 10%;
    justify-content:center;
    justify:center;
    justify-itmes:center;
@@ -119,7 +120,7 @@ body {
    font-family: Arial, sans-serif;
    margin: 0;
    padding: 0;
-   background:linear-gradient(45deg,rgb(36, 36, 241),rgb(76, 197, 245),rgb(147, 147, 249),skyblue);
+   background:linear-gradient(45deg,rgb(46, 254, 46),rgb(183, 247, 183),rgb(175, 248, 112));
 }
 
 .container {
@@ -137,7 +138,7 @@ h1 {
 form {
    background-color: #fff;
    border-radius: 8px;
-   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   box-shadow: 0 0 10px rgba(16, 243, 84, 0.1);
    padding: 20px;
 }
 
